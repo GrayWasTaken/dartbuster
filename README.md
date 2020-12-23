@@ -1,13 +1,10 @@
 # Dartbuster
+## About
 Author: Gray
 
 License: [MIT License](#License "MIT License")
 
-Description: URL Fuzzing / brute forcing tool, written in dart.
-
-
-## Description
-Easy to use async directory brute forcing tool with advanced capabilities. Dartbuster is a cross platform tool written in dart with significant performance enhancements that really make it an effective choice over pre-existing tools.
+Description: Easy to use async directory brute forcing tool with advanced capabilities. Dartbuster is a cross platform tool written in dart with significant performance enhancements that really make it an effective choice over pre-existing tools.
 
 ## Screenshots
 ![1](https://apoc.club/assets/portfolio/dartbuster/1.png "Help Screen")
