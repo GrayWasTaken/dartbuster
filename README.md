@@ -5,6 +5,20 @@
 
 **Description:** Easy to use async directory brute forcing tool with advanced capabilities. Dartbuster is a cross platform tool written in dart with significant performance enhancements that really make it an effective choice over pre-existing tools.
 
+## Installation
+```sh
+# Down the repository with
+$ git clone https://github.com/GrayWasTaken/dartbuster.git
+
+# Option 1: Darbuster by default comes with a prebuilt binary that you can run after download with the following.
+$ ./dartbuster/bin/dartbuster
+
+# Option 2: Build your own binary from source make sure you have the dart sdk installed and perform the following:
+$ cd dartbuster/
+$ pub get
+$ dart2native ./bin/dartbuster.dart -o bin/dartbuster
+```
+
 ## Screenshots
 ![1](https://apoc.club/assets/portfolio/dartbuster/1.png "Help Screen")
 ![2](https://apoc.club/assets/portfolio/dartbuster/2.png "Scan in progress")
@@ -34,7 +48,7 @@
 
 
 ```py
-#Prints help screen
+# Prints help screen
 $ dartbuster -h
 
 # Starts fuzzing the "example.com" website, with 50 threads using wordlist apache-user-enum-1.0.txt
