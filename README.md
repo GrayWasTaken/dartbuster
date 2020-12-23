@@ -1,4 +1,4 @@
-# Dartbuster
+# Dartbuster ##Written by Gray
 ### URL Fuzzing / brute forcing tool, written in dart.
 [license](https://github.com/dart-lang/stagehand/blob/master/LICENSE).
 
