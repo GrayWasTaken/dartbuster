@@ -26,15 +26,15 @@ Easy to use async directory brute forcing tool with advanced capabilities. Dartb
 ## Usage
 *** The help screen has all the information you'd need, but here are some hopefully useful examples: ***
 Prints help screen
-`$ dartbuster -h`
+```$ dartbuster -h```
 Starts fuzzing the "example.com" website, with 50 threads using wordlist apache-user-enum-1.0.txt
-`$ dartbuster scan -u https://example.com -T 50 -w apache-user-enum-1.0.txt`
+```$ dartbuster scan -u https://example.com -T 50 -w apache-user-enum-1.0.txt```
 Starts fuzzing the "example.com" website, with the extensions .pdf, .html, .css
-`$ dartbuster scan -u https://example.com -e .pdf,.html,.css`
+```$ dartbuster scan -u https://example.com -e .pdf,.html,.css```
 Prints built in extension and word lists.
-`$ dartbuster list`
+```$ dartbuster list```
 Prints built in useragents.
-`$ dartbuster useragents`
+```$ dartbuster useragents```
 
 
 
