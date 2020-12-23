@@ -1,0 +1,14 @@
+name: dartbuster
+description: URL Fuzzing / brute forcing tool, written in dart.
+version: 1.0.0
+homepage: https://apoc.club/
+author: Apocalyptic
+
+environment:
+  sdk: '>=2.8.1 <3.0.0'
+
+dependencies:
+  http: ^0.12.2
+
+dev_dependencies:
+  pedantic: ^1.9.0
