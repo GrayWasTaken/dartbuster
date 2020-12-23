@@ -18,6 +18,13 @@ class C {
 }
 final c = C();
 
+// Handle error messages
+void errorMessage(msg, {e=null}) {
+  print('${c.r}[-]${c._} $msg');
+  e != null ? print('    ${c.o}Stacktrace:${c._} $e') : null;
+  exit(1);
+}
+
 // File name and directory path
 final filename = Platform.script.toString().split('/').removeLast();
 final working_dir = Platform.script.toString().replaceFirst('file://','').substring(0,Platform.script.toString().replaceFirst('file://','').length-filename.length);
@@ -152,12 +159,6 @@ List segment(list, size) {
     chunks.add(list.sublist(i,end));
   }
   return chunks;
-}
-
-void errorMessage(msg, {e=null}) {
-  print('${c.r}[-]${c._} $msg');
-  e != null ? print('    ${c.o}Stacktrace:${c._} $e') : null;
-  exit(1);
 }
 
 dynamic parseFlags(List<String> args, Map flag, {bool has_value = true}) {
