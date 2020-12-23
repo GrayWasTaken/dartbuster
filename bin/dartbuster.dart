@@ -251,21 +251,21 @@ _  /_/ // /_/ /_  /   / /_      _  /_/ // /_/ /_(__  )/ /_ /  __/  /
 
 
 
+// Primary declarations
+dynamic url;
+dynamic word_list;
+dynamic extensions;
+dynamic user_agent;
+// dynamic timeout;
+dynamic threads;
+dynamic delay;
+dynamic output;
+dynamic show_404;
+dynamic verbosity;
+dynamic cookies;
 
-  dynamic url;
-  dynamic word_list;
-  dynamic extensions;
-  dynamic user_agent;
-  // dynamic timeout;
-  dynamic threads;
-  dynamic delay;
-  dynamic output;
-  dynamic show_404;
-  dynamic verbosity;
-  dynamic cookies;
-
-  Map<String, String> headers;
-  final ReceivePort rc = ReceivePort();
+Map<String, String> headers;
+final ReceivePort rc = ReceivePort();
 
 
 
