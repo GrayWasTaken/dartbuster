@@ -10,11 +10,11 @@ Description: URL Fuzzing / brute forcing tool, written in dart.
 Easy to use async directory brute forcing tool with advanced capabilities. Dartbuster is a cross platform tool written in dart with significant performance enhancements that really make it an effective choice over pre-existing tools.
 
 ## Screenshots
-![picture alt](https://apoc.club/assets/portfolio/dartbuster/1.png "Title is optional")
-![picture alt](https://apoc.club/assets/portfolio/dartbuster/2.png "Title is optional")
-![picture alt](https://apoc.club/assets/portfolio/dartbuster/3.png "Title is optional")
-![picture alt](https://apoc.club/assets/portfolio/dartbuster/4.png "Title is optional")
-![picture alt](https://apoc.club/assets/portfolio/dartbuster/5.png "Title is optional")
+![1](https://apoc.club/assets/portfolio/dartbuster/1.png "Help Screen")
+![2](https://apoc.club/assets/portfolio/dartbuster/2.png "Scan in progress")
+![3](https://apoc.club/assets/portfolio/dartbuster/3.png "Scan completion")
+![4](https://apoc.club/assets/portfolio/dartbuster/4.png "Word and extension lists")
+![6](https://apoc.club/assets/portfolio/dartbuster/5.png "User agents list")
 
 ## Features
 - Real time scan progress and information
