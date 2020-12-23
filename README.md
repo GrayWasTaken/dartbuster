@@ -10,10 +10,12 @@
 # Down the repository with
 $ git clone https://github.com/GrayWasTaken/dartbuster.git
 
-# Option 1: Darbuster by default comes with a prebuilt binary that you can run after download with the following.
+# Option 1: Run using pre-built binary.
+# By default Dartbuster comes with a prebuilt binary to execute.
 $ ./dartbuster/bin/dartbuster
 
-# Option 2: Build your own binary from source make sure you have the dart sdk installed and perform the following:
+# Option 2: Build your own binary from source.
+# Make sure you have the dart sdk installed and corresponding dependencies.
 $ cd dartbuster/
 $ pub get
 $ dart2native ./bin/dartbuster.dart -o bin/dartbuster
