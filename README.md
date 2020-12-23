@@ -37,7 +37,7 @@ Easy to use async directory brute forcing tool with advanced capabilities. Dartb
 ***The help screen has all the information you'd need, but here are some hopefully useful examples:***
 
 
-```sh
+```py
 #Prints help screen
 $ dartbuster -h
 
