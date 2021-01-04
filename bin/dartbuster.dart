@@ -5,6 +5,10 @@ import 'dart:core';
 import 'package:http/http.dart' as http;
 import 'user-agents.dart';
 
+// Main
+const version = 1.1;
+
+
 // CLI colors
 class C {
   final _ = '\u001b[0m';
@@ -89,17 +93,17 @@ const flags = [
     'usage':['-U 1','-U Internet\\ Browser\\ Version\\ 10'],
     'default':'rotate'
   },
-  // {
-  //   'name':['-t','--timeout'],
-  //   'parameter':'<integer>',
-  //   'description':'Specify max timeout time for a request in seconds.',
-  //   'usage':['-t 30'],
-  //   'default':'//TODO//'
-  // },
+  {
+    'name':['-t','--timeout'],
+    'parameter':'<integer>',
+    'description':'Specify max timeout time for a request in seconds.',
+    'usage':['-t 30'],
+    'default':'5'
+  },
   {
     'name':['-T','--threads'],
     'parameter':'<integer>',
-    'description':'Specify max timeout time for a request in seconds.',
+    'description':'Specify threadcount.',
     'usage':['-T 68'],
     'default':'50'
   },
@@ -209,9 +213,9 @@ ___  __ \\_____ _________  /_    ___  __ )___  __________  /_____________
 __  / / /  __ `/_  ___/  __/    __  __  |  / / /_  ___/  __/  _ \\_  ___/
 _  /_/ // /_/ /_  /   / /_      _  /_/ // /_/ /_(__  )/ /_ /  __/  /
 /_____/ \\__,_/ /_/    \\__/      /_____/ \\__,_/ /____/ \\__/ \\___//_/
-              ${c.y}>>>>>>>_____________________\\`-._                       ${c.c}v:1.0.0
+              ${c.y}>>>>>>>_____________________\\`-._                       ${c.c}v:$version
               ${c.y}>>>>>>>                     /.-'""");
-  print('${c.b}Author:${c.g} Apocalyptic   ${c.b}Website:${c.g} https://apoc.club/   ${c.b}Discord:${c.g} https://apoc.club/#discord');
+  print('${c.b}Author:${c.g} Gray   ${c.b}Website:${c.g} https://lambda.black/   ${c.b}Github:${c.g} https://github.com/graywastaken');
   print('\n${c.o}Commands:');
   for (var x in commands) {
     var tmp = '${c.y}  ';
@@ -256,7 +260,7 @@ dynamic url;
 dynamic word_list;
 dynamic extensions;
 dynamic user_agent;
-// dynamic timeout;
+dynamic timeout;
 dynamic threads;
 dynamic delay;
 dynamic output;
@@ -296,13 +300,13 @@ void main(List<String> arguments) async {
   word_list = parseFlags(arguments, flags[1]);
   extensions = parseFlags(arguments, flags[2]);
   user_agent = parseFlags(arguments, flags[3]);
-  // timeout = parseFlags(arguments, flags[4]);
-  threads = parseFlags(arguments, flags[4]);
-  delay = parseFlags(arguments, flags[5]);
-  output = parseFlags(arguments, flags[6]);
-  show_404 = parseFlags(arguments, flags[7], has_value:false);
-  verbosity = parseFlags(arguments, flags[8], has_value:false);
-  cookies = parseFlags(arguments, flags[9]);
+  timeout = parseFlags(arguments, flags[4]);
+  threads = parseFlags(arguments, flags[5]);
+  delay = parseFlags(arguments, flags[6]);
+  output = parseFlags(arguments, flags[7]);
+  show_404 = parseFlags(arguments, flags[9], has_value:false);
+  verbosity = parseFlags(arguments, flags[9], has_value:false);
+  cookies = parseFlags(arguments, flags[10]);
 
 
   // Parse and validate input
@@ -347,11 +351,11 @@ void main(List<String> arguments) async {
   }
 
   // // Check timeout
-  // try {
-  //   timeout = int.parse(timeout);
-  // } catch (e) {
-  //   errorMessage('Invalid timeout specified ${c.p}$timeout${c._}, timeout must be a positive integer');
-  // }
+  try {
+    timeout = int.parse(timeout);
+  } catch (e) {
+    errorMessage('Invalid timeout specified ${c.p}$timeout${c._}, timeout must be a positive integer');
+  }
 
   // Check threads
   try {
@@ -387,10 +391,7 @@ void main(List<String> arguments) async {
   var start_time = DateTime.now();
   var webserver;
   try {
-    var client = http.Client();
-    var r = await client.get(url);
-    webserver = r.headers['server'];
-    client.close();
+    webserver = (await http.get(url)).headers['server'];
   } catch (e) {
     errorMessage('Invalid url or host specified, ${c.p}$url${c._} is not up.',e: e);
   }
@@ -404,7 +405,7 @@ void main(List<String> arguments) async {
   print('${c.b}User Agent.....: ${c.c}$user_agent ${user_agent == 'rotate' ? (user_agents.length) : ''}');
   print('${c.b}Cookies........: ${c.c}$cookies');
   print('${c.b}Threads........: ${c.c}$threads');
-  // print('${c.b}Timeout........: ${c.c}${timeout}s');
+  print('${c.b}Timeout........: ${c.c}${timeout}s');
   print('${c.b}Delay..........: ${c.c}${delay}s');
   print(c.g+'='*75);
   print('${c.y}[*]${c.o}         Status Code Content Length Content-Type Header      URL${c._}');
@@ -420,17 +421,17 @@ void main(List<String> arguments) async {
 
   rc.listen((message) {
     final dt = DateTime.now();
-    final time = '${dt.hour}:${dt.minute}:${dt.second < 10 ? '0'+dt.second.toString() : dt.second}';
+    final time = '[${dt.hour}:${dt.minute}:${dt.second < 10 ? '0'+dt.second.toString() : dt.second}]'.padRight(12);
     if (message[0] == 0) {
       count++;
       stdout.write('${c.g}[${(count/total*100).toStringAsFixed(2)}%]${c._} ' + message[1]);
     } else if (message[0] == 1) {
-      print('${c.g}[${time}]${c._}  ' + message[1]);
+      print('${c.g}$time${c._}' + message[1]);
       // print('${c.g}[$count/$total]${c._}  ' + message[1]);
     } else {
       errors++;
       if (verbosity != null) {
-        print('${c.r}[${time}]${c._} ' + message[1] + ' '*50);
+        print('${c.r}$time${c._}' + message[1] + ' '*50);
       }
     }
   });
@@ -461,7 +462,6 @@ void main(List<String> arguments) async {
 Future<void> scanIsolateAsync(List wl) async {
   // Initial Declarations
   var r;
-  var client = http.Client();
 
   // // start scan
   for (var word in wl) {
@@ -471,7 +471,7 @@ Future<void> scanIsolateAsync(List wl) async {
       }
       rc.sendPort.send([0,'Trying ${c.b}${word+ext}${' '*(75-(word+ext).length)}\r']);
       try {
-        r = await client.get('$url/$word$ext', headers: headers);
+        r = await http.get('$url/$word$ext', headers: headers).timeout(Duration(seconds: timeout));
         if (show_404 != null || r.statusCode != 404) {
           rc.sendPort.send([1,'${r.statusCode.toString().padRight(11)} ${r.body.length.toString().padRight(14)} ${r.headers['content-type'].padRight(24)} ${word+ext}${' '*(40-(word+ext).length)}']);
           // Logging
