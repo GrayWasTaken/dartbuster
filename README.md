@@ -36,7 +36,8 @@ $ dart2native ./bin/dartbuster.dart -o bin/dartbuster
 - Rotates user agent per request (optional)
 - Supports custom wordlists, extensions, and user agents
 - Multithreaded and option to specify threadcount
-- Specify Delay
+- Specify delay
+- Specify timeout
 - Supports output files
 - Option to hide or show 404 responses
 - Specify custom cookies
