@@ -7,7 +7,7 @@
 
 ## Installation
 ```sh
-# Down the repository with
+# Download the repository with
 $ git clone https://github.com/GrayWasTaken/dartbuster.git
 
 # Option 1: Run using pre-built binary.
