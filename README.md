@@ -44,7 +44,7 @@ $ dart2native ./bin/dartbuster.dart -o bin/dartbuster
 - Automatically skips common fuzzing traps such as endless redirects and optionally prints to screen
 - Pre and post scan report
 - Fully cross platform
-- Asynchronous by nature so multiple requests will occur concurrently on a single thread.
+- Asynchronous by nature so multiple requests will occur concurrently on a single thread
 
 ## Usage
 ***The help screen has all the information you'd need, but here are some hopefully useful examples:***
