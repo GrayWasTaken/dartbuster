@@ -6,7 +6,7 @@ import 'package:http/http.dart' as http;
 import 'user-agents.dart';
 
 // Main
-const version = '1.1.1';
+const version = '1.0.1';
 
 
 // CLI colors
