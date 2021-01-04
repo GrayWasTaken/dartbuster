@@ -215,7 +215,7 @@ _  /_/ // /_/ /_  /   / /_      _  /_/ // /_/ /_(__  )/ /_ /  __/  /
 /_____/ \\__,_/ /_/    \\__/      /_____/ \\__,_/ /____/ \\__/ \\___//_/
               ${c.y}>>>>>>>_____________________\\`-._                       ${c.c}v:$version
               ${c.y}>>>>>>>                     /.-'""");
-  print('${c.b}Author:${c.g} Gray   ${c.b}Website:${c.g} https://lambda.black/   ${c.b}Github:${c.g} https://github.com/graywastaken');
+  print('${c.b}Author:${c.g} Gray   ${c.b}Website:${c.g} https://lambda.black/   ${c.b}Github:${c.g} https://github.com/GrayWasTaken');
   print('\n${c.o}Commands:');
   for (var x in commands) {
     var tmp = '${c.y}  ';
