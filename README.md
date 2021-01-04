@@ -22,11 +22,11 @@ $ dart2native ./bin/dartbuster.dart -o bin/dartbuster
 ```
 
 ## Screenshots
-![1](https://apoc.club/assets/portfolio/dartbuster/1.png "Help Screen")
-![2](https://apoc.club/assets/portfolio/dartbuster/2.png "Scan in progress")
-![3](https://apoc.club/assets/portfolio/dartbuster/3.png "Scan completion")
-![4](https://apoc.club/assets/portfolio/dartbuster/4.png "Word and extension lists")
-![6](https://apoc.club/assets/portfolio/dartbuster/5.png "User agents list")
+![1](https://lambda.black/assets/portfolio/dartbuster/1.png "Help Screen")
+![2](https://lambda.black/assets/portfolio/dartbuster/2.png "Scan in progress")
+![3](https://lambda.black/assets/portfolio/dartbuster/3.png "Scan completion")
+![4](https://lambda.black/assets/portfolio/dartbuster/4.png "Word and extension lists")
+![6](https://lambda.black/assets/portfolio/dartbuster/5.png "User agents list")
 
 ## Features
 - Real time scan progress and information
