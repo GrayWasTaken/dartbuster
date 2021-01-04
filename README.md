@@ -60,10 +60,10 @@ $ dartbuster scan -u https://example.com -T 50 -w apache-user-enum-1.0.txt
 # Starts fuzzing the "example.com" website, with the extensions .pdf, .html, .css
 $ dartbuster scan -u https://example.com -e .pdf,.html,.css
 
-# Prints built in extension and word lists.
+# Prints built in extension and word lists
 $ dartbuster list
 
-# Prints built in useragents.
+# Prints built in useragents
 $ dartbuster useragents
 ```
 
