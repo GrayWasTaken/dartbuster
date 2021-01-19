@@ -6,7 +6,7 @@ import 'package:http/http.dart' as http;
 import 'user-agents.dart';
 
 // Main
-const version = '1.0.1';
+const version = '1.0.2';
 
 
 // CLI colors
@@ -32,6 +32,7 @@ void errorMessage(msg, {e=null}) {
 // File name and directory path
 final filename = Platform.script.toString().split('/').removeLast();
 final working_dir = Platform.script.toString().replaceFirst('file://','').substring(0,Platform.script.toString().replaceFirst('file://','').length-filename.length);
+// const working_dir = '/opt/dartbuster';
 
 
 const commands = [
@@ -186,15 +187,17 @@ dynamic parseFlags(List<String> args, Map flag, {bool has_value = true}) {
 }
 
 void list() {
-  print('${c.y}${c.y}[*]${c.o} Pre-installed word list names${c._}');
+  print('${c.y}${c.y}[*]${c.o} Installed Word Lists${c._}');
+  print('${c.y}${c.y}[*]${c.o} Length   | Word list name${c._}');
   Directory(working_dir+'wordlists').listSync().forEach((e) {
-    print('${c.g}[+]${c._} ${e.path.replaceFirst(working_dir+'wordlists/','')}');
+    print('${c.g}[+]${c._} ${File(e.path.toString()).readAsLinesSync().length.toString().padRight(8)} ${c.o}|${c._} ${e.path.replaceFirst(working_dir+'wordlists/','')}');
   });
-  print('${c.y}${c.y}[*]${c._} To install a wordlist place your wordlist file in ${c.o}${Directory(working_dir+'wordlists').path}${c._} and ensure entries are newline delimited.');
+  print('${c.y}${c.y}[*]${c._} To install a wordlist place your wordlist file in ${c.o}${Directory(working_dir+'wordlists').path}${c._} and ensure entries are newline delimited.\n');
 
-  print('\n${c.y}${c.y}[*]${c.o} Pre-installed extensions list names${c._}');
+  print('${c.y}${c.y}[*]${c.o} Installed Extensions Lists${c._}');
+  print('${c.y}${c.y}[*]${c.o} Length   | Extension list name${c._}');
   Directory(working_dir+'extensions').listSync().forEach((e) {
-    print('${c.g}[+]${c._} ${e.path.replaceFirst(working_dir+'extensions/','')}');
+    print('${c.g}[+]${c._} ${File(e.path.toString()).readAsLinesSync().length.toString().padRight(8)} ${c.o}|${c._} ${e.path.replaceFirst(working_dir+'extensions/','')}');
   });
   print('${c.y}${c.y}[*]${c._} To install a wordlist place your wordlist file in ${c.o}${Directory(working_dir+'extensions').path}${c._} and ensure entries are newline delimited.');
 }
@@ -282,7 +285,11 @@ void main(List<String> arguments) async {
       help();
       exit(0);
     } else if (arguments[0].toLowerCase() == 'list') {
-      list();
+      try {
+        list();
+      } catch (e) {
+        print(e);
+      }
       exit(0);
     } else if (arguments[0].toLowerCase() == 'useragents') {
       agents();
