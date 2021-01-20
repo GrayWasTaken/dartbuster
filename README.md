@@ -7,7 +7,7 @@
 
 ## Installation
 ### Arch
-Dartbuster is available for the arch AUR.
+Dartbuster is available as an AUR package.
 ```sh
 yay -S dartbuster
 ```
