@@ -280,7 +280,7 @@ void main(List<String> arguments) async {
   if (FileSystemEntity.typeSync('/opt/dartbuster') == FileSystemEntityType.notFound) {
     working_dir = Platform.script.toString().replaceFirst('file://','').substring(0,Platform.script.toString().replaceFirst('file://','').length-filename.length);
   } else {
-    working_dir = '/opt/dartbuster/';
+    working_dir = '/opt/dartbuster/bin/';
   }
   // print('${c.y}[*]${c._} Using directory $working_dir');
 
