@@ -6,6 +6,13 @@
 **Description:** Easy to use async directory brute forcing tool with advanced capabilities. Dartbuster is a cross platform tool written in dart with significant performance enhancements that really make it an effective choice over pre-existing tools.
 
 ## Installation
+### Arch
+Dartbuster is available for the arch AUR.
+```sh
+yay -S dartbuster
+```
+
+### Manual Install
 ```sh
 # Download the repository with
 $ git clone https://github.com/GrayWasTaken/dartbuster.git

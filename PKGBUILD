@@ -34,5 +34,5 @@ package() {
   dart2native bin/dartbuster.dart -o bin/dartbuster
   sudo mkdir -p "/opt/$pkgname"
   sudo cp -rf * "/opt/$pkgname"
-  sudo ln -s /opt/dartbuster/bin/dartbuster /bin/dartbuster
+  sudo ln -sf /opt/dartbuster/bin/dartbuster /bin/dartbuster
 }
